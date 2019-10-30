@@ -1,0 +1,19 @@
+<form [formGroup]='stepOne' (ngSubmit)="next()">
+    <input type="text" name="" id="" placeholder="UserName" formControlName='userName' [ngClass]="{'inputerror':nextbutton}">
+    <div class="errors">
+        <p *ngIf="stepOne.controls.userName.hasError('required') && nextbutton">User Name is empty!!!</p>   
+    </div>
+    <input type="email" name="" id="" placeholder="Email" formControlName='email'>
+    <div class="errors">
+        <p *ngIf="stepOne.controls.email.hasError('required') && nextbutton">Email is empty!!!</p>   
+        <p *ngIf="stepOne.controls.email.hasError('pattern') && nextbutton">No Email</p>
+        
+    </div>
+    <input type="text" name="" id="" placeholder="Password" formControlName='password'>
+    <div>
+        <p *ngIf="stepOne.controls.password.hasError('minlength') && nextbutton">Password is min!!!</p>
+        <p *ngIf="stepOne.controls.password.hasError('maxlength') && nextbutton">Password is max!!!</p>
+    </div>
+    <input type="text" name="" id="" placeholder="Confirm Password" formControlName='confirmPassword'>
+    <button>Next</button>
+</form>
