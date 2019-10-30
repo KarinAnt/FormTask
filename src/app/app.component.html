@@ -1,1 +1,2 @@
-<app-stepone></app-stepone>
+<app-stepone (nextToStepTwo)='nextStepTwo($event)' *ngIf="!toStepTwo"></app-stepone>
+<app-steptwo *ngIf="toStepTwo"></app-steptwo>

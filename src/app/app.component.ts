@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FormTask';
+  toStepTwo = true;
+  nextStepTwo(event){
+    this.toStepTwo= event;
+  }
 }

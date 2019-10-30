@@ -1,19 +1,23 @@
 <form [formGroup]='stepOne' (ngSubmit)="next()">
-    <input type="text" name="" id="" placeholder="UserName" formControlName='userName' [ngClass]="{'inputerror':nextbutton}">
+    <input type="text" name=""  placeholder="UserName" formControlName='userName' (keyup)='deleteTrue("name")'>
     <div class="errors">
-        <p *ngIf="stepOne.controls.userName.hasError('required') && nextbutton">User Name is empty!!!</p>   
+        <p *ngIf="stepOne.controls.userName.hasError('required') && namebut">User Name is empty!!!</p>   
     </div>
-    <input type="email" name="" id="" placeholder="Email" formControlName='email'>
+    <input type="email" name=""  placeholder="Email" formControlName='email' (keyup)='deleteTrue("email")'>
     <div class="errors">
-        <p *ngIf="stepOne.controls.email.hasError('required') && nextbutton">Email is empty!!!</p>   
-        <p *ngIf="stepOne.controls.email.hasError('pattern') && nextbutton">No Email</p>
+        <p *ngIf="stepOne.controls.email.hasError('required') && emailbut">Email is empty!!!</p>   
+        <p *ngIf="stepOne.controls.email.hasError('pattern') && emailbut">No Email</p>
         
     </div>
-    <input type="text" name="" id="" placeholder="Password" formControlName='password'>
-    <div>
-        <p *ngIf="stepOne.controls.password.hasError('minlength') && nextbutton">Password is min!!!</p>
-        <p *ngIf="stepOne.controls.password.hasError('maxlength') && nextbutton">Password is max!!!</p>
+    <input type="password" name=""  placeholder="Password" formControlName='password' (keyup)='deleteTrue("pass")'>
+    <div class="errors">
+        <p *ngIf="stepOne.controls.password.hasError('required') && passbut">Password is empty!!!</p>   
+        <p *ngIf="stepOne.controls.password.hasError('minlength') && passbut">Password is min!!!</p>
+        <p *ngIf="stepOne.controls.password.hasError('maxlength') && passbut">Password is max!!!</p>
     </div>
-    <input type="text" name="" id="" placeholder="Confirm Password" formControlName='confirmPassword'>
-    <button>Next</button>
+    <input type="password" name=""  placeholder="Confirm Password" formControlName='confirmPassword' (keyup)='deleteTrue("conpass")'>
+    <div class="errors">
+        <p *ngIf="(stepOne.value.password!==stepOne.value.confirmPassword) && conpassbut">Passwords do not coincide</p>
+    </div>
+    <button >Next</button>
 </form>

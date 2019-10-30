@@ -27,7 +27,7 @@ form button {
     border:none;
     border-radius: 8px;
     padding: 5px;
-    align-self: flex-end;
+    /* align-self: flex-end; */
     background-color: teal;
 }
 form button:hover{
