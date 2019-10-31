@@ -1,4 +1,4 @@
-<form [formGroup]='stepOne' (ngSubmit)="next()">
+<form [formGroup]='stepOne' (ngSubmit)="next()" class="form">
     <input type="text" name=""  placeholder="UserName" formControlName='userName' (keyup)='deleteTrue("name")'>
     <div class="errors">
         <p *ngIf="stepOne.controls.userName.hasError('required') && namebut">User Name is empty!!!</p>   
@@ -7,7 +7,6 @@
     <div class="errors">
         <p *ngIf="stepOne.controls.email.hasError('required') && emailbut">Email is empty!!!</p>   
         <p *ngIf="stepOne.controls.email.hasError('pattern') && emailbut">No Email</p>
-        
     </div>
     <input type="password" name=""  placeholder="Password" formControlName='password' (keyup)='deleteTrue("pass")'>
     <div class="errors">

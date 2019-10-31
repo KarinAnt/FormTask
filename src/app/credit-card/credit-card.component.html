@@ -1,6 +1,10 @@
-<form action="">
-    <input type="text" placeholder="Card Number">
-    <input type="text" placeholder="Owner">
-    <input type="text" placeholder="cw">
-    <input type="text" placeholder="expip">
+<form action="" class="form">
+    <input type="text" placeholder="Card Number" appCardNumber (keyup)='deleteTrue("cardNumber")'>
+    <div class="errors">
+        <p *ngIf=" card.controls.cardNumber.hasError('required') && cardNumberbut">Card Number is empty!!!</p>   
+        <p *ngIf="card.controls.cardNumber.hasError('minlength') && cardNumberbut">Card Number is min!!!</p>    
+    </div>
+    <input type="text" placeholder="Owner" (keyup)='deleteTrue("owner")'>
+    <input type="text" placeholder="cw" (keyup)='deleteTrue("cw")' appCw>
+    <input type="text" placeholder="expiration" (keyup)='deleteTrue("expiration")'>
 </form>
